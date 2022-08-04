@@ -31,8 +31,11 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "MFE1",
       filename: "remoteEntry.js",
+      remotes: {
+        store: "store@http://localhost:8084/remoteEntry.js",
+      },
       exposes: {
-        "./Button": "./src/Button",
+        "./Header": "./src/Header",
       },
       shared: {
         ...deps,
